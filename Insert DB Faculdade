@@ -1,0 +1,367 @@
+USE db_faculdade;
+INSERT INTO tipo_telefone (tipo_telefone) VALUES 
+	('cel'),
+    ('res'),
+    ('com');
+    
+INSERT INTO departamento (cod_departamento, nome_departamento) VALUES
+	('1', 'Ciencias Humanas'),
+    ('2', 'Matematica'),
+    ('3', 'Biologicas'),
+    ('4', 'Estagio'),
+    ('5', 'Tec Informacao');
+    
+INSERT INTO tipo_logradouro (tipo_logradouro) VALUES
+	('Quadra'),
+    ('Rua'),
+    ('Alameda'),
+    ('Avenida'),
+    ('Campo'),
+    ('Chacara'),
+    ('Area'),
+    ('Condominio');
+    
+INSERT INTO endereco 
+	(nome_rua, numero_rua, complemento, CEP, fk_cod_tipo_logradouro)
+VALUES
+	('Rua Antônio', '10', 'Primeira a esquerda', '12345678', '2'),
+    ('SHIN', '515', 'Segunda a esquerda', '23456789', '4'),
+    ('Alphaville', '8', 'Frente a padaria', '34567810', '8'),
+    ('Alasca', '62', 'Conjunto F', '12345612', '4'),
+    ('Las Vegas', '20', 'Lateral 2', '45678325', '6'),
+    ('QNP', '22', 'Especial 2', '34567820', '1'),
+    ('Especial 3', '11', 'Conjunto B', '12367845', '7'),
+    ('Palmeiras', '572', 'Loja 5', '12567858', '4'),
+    ('Maria', '58', 'Esquerda do mercado', '12345867', '3'),
+    ('Rua Brunna', '33', 'Frente a Praia', '34567833', '2'),
+    ('SHIS', '914', 'Igreja', '89632158', '5'),
+    ('Ponta das Canas', '343', 'Maria Bonita', '12348014', '4'),
+    ('Quadra 8', '8', 'Conjunto B', '56781234', '1'),
+    ('Shurastey', '4', 'Balneario', '14567805', '2'),
+    ('Shuragou', '5', 'Camboriu', '79563245', '3'),
+    ('QNM', '24', 'Conjunto G', '89655678', '6'),
+    ('Bendito', '1', 'Primeira rua', '12378001', '5'),
+    ('Rua Andrea', '35', 'Bonitinha', '12345987', '7'),
+    ('Quadra 10', '56', 'Conjunto A', '98765432', '8');
+    
+INSERT INTO telefone 
+	(num_telefone, fk_cod_tipo)
+VALUES
+	('34853926', '8'),
+    ('99553825', '7'),
+    ('34850012', '9'),
+    ('99853926', '7'),
+    ('34853586', '9'),
+    ('32125896', '8'),
+    ('96023245', '7'),
+    ('32450000', '9'),
+    ('35912565', '8'),
+    ('96584152', '7'),
+    ('95623482', '7'),
+    ('36585253', '9'),
+    ('41012596', '8'),
+    ('96257841', '7'),
+    ('92653562', '7'),
+    ('35891236', '9');
+    
+INSERT INTO curso 
+	(nome_curso, fk_cod_departamento)
+VALUES
+	('Eng de Software', '5'),
+    ('Analise de Sistemas', '5'),
+    ('Biologia', '3'),
+    ('Historia', '1'),
+    ('Matematica', '2'),
+    ('Engenharia Eletrica', '4'),
+    ('Psicologia', '1'),
+    ('Banco de Dados', '5'),
+    ('People Analytics', '5'),
+    ('Recursos Humanos', '1');
+    
+INSERT INTO turma
+	(periodo, num_alunos, dt_inicio, dt_fim, fk_cod_curso)
+VALUES
+	('1', '10', '2022-06-01', '2025-07-15', '1'),
+    ('2', '20', '2021-01-10', '2024-01-15', '2'),
+    ('3', '30', '2020-02-15', '2023-02-15', '3'),
+    ('4', '15', '2019-03-10', '2022-03-10', '4'),
+    ('5', '25', '2021-05-10', '2023-05-10', '5'),
+    ('6', '18', '2022-06-15', '2024-06-15', '6'),
+    ('7', '22', '2020-06-10', '2022-06-10', '7'),
+    ('2', '35', '2019-07-15', '2022-07-15', '8'),
+    ('4', '14', '2022-08-10', '2024-08-10', '9'),
+    ('1', '40', '2021-07-10', '2023-07-10', '10');
+ 
+
+INSERT INTO aluno
+	(nome_aluno, sobrenome_aluno, cpf, status, sexo, nome_pai, nome_mae, email, fk_cod_curso, fk_cod_turma, fk_cod_endereco)
+VALUES
+	('Alcides', 'Moura', '94782132310', '1', 'M', 'João Mario', 'Rosa Maria', 'alcidesm@msn.com', '1', '1', '1'),
+    ('Adriana', 'Telo', '94782132325', '2', 'F', 'Gabriel Moura', 'Ana Julia', 'adriana@yahoo.com', '2', '2', '2'),
+    ('Brunna', 'Nobre', '99182150810', '1', 'F', 'Josias Neto', 'Maria Nobre', 'brunna.fernandesnobre@gmail.com', '3', '3', '3'),
+    ('Bianca', 'Gomes', '92382131317', '1', 'F', 'Alonso Gomes', 'Josefa Gomes', 'bibi@msn.com', '4', '4', '4'),
+    ('Cleiton', 'Ribeiro', '93282132716', '2', 'M', 'João Santos', 'Silena Couto', 'cleitin@gmail.com', '5', '5', '5'),
+    ('Claudio', 'Lopes', '34782132315', '1', 'M', 'Claudio Lopes', 'Raquel Lopes', 'claudinho14@gmail.com', '6', '6', '6'),
+    ('Dalva', 'Rodrigues', '34782132320', '1', 'F', 'Davi Rodrigues', 'Daniela Rodrigues', 'dalvabn@gmail.com', '7', '7', '7'),
+    ('Enzo', 'Bibao', '92382132708', '1', 'M', 'Eduardo Bibao', 'Helena Costa', 'enzobi@msn.com', '8', '8', '8'),
+    ('Fernanda', 'Silva', '91037856712', '1', 'F', 'Fernando Silva', 'Maria de Fatima', 'fefis@yahoo.com', '9', '9', '9'),
+    ('Giordan', 'Brosti', '90150359154', '1', 'M', 'George Brosti', 'Manuela Brosti', 'giordan@gmail.com', '10', '10', '10'),
+    ('Henrique', 'Silveira', '99382150807', '1', 'M', 'José Silveira', 'Rita Silveira', 'henricristo@gmail.com', '1', '3', '11'),
+	('Tayara', 'Carvalho', '91156874112', '1', 'F', 'Manoel Carvalho', 'Tatiana Carvalho', 'tayara@msn.com', '5', '10', '12'),
+    ('Carlos', 'Abraão', '91282131701', '1', 'M', 'Claudinei Abraão', 'Alice Abraão', 'carlinhos@gmail.com', '7', '8', '13'),
+    ('Raquel', 'Nobrega', '91137856810', '1', 'F', 'Darsone Nobrega', 'Manoel Nobrega', 'kellnobrega@yahoo.com', '8', '5', '14'),
+    ('Paulo', 'Sales', '90153259112', '1', 'M', 'Juventino Sales', 'Juma Sales', 'paulete@gmail.com', '3', '6', '15'),
+    ('Roger', 'Sampaio', '90143254873', '2', 'M', 'Rodinei Sampaio', 'Doralice Sampaio', 'rogertii@msn.com', '8', '1', '16'),
+    ('Vilma', 'Maria', '91053271204', '1', 'F', 'Julio Robert', 'Ananda Robert', 'vilmadessi@msn.com', '4', '4', '17'),
+	('Marcos', 'Paulo', '91532756821', '1', 'M', 'Rodrigo Santos', 'Carolina Santos', 'marcosp@msn.com', '9', '2', '18'),
+    ('Wallace', 'Ribeiro', '90276853210', '1', 'M', 'Mario Ribeiro', 'Nazare Ribeiro', 'wallace10@msn.com', '6', '7', '19'),
+	('Thiago', 'Doria', '91533322211', '1', 'M', 'Joao Doria', 'Luiza Doria', 'thidoria@yahoo.com', '1', '6', '1');
+
+UPDATE aluno SET whatsapp = '95689858' WHERE RA = '41';
+UPDATE aluno SET whatsapp = '99553825' WHERE RA = '42';
+UPDATE aluno SET whatsapp = '93652145' WHERE RA = '44';
+UPDATE aluno SET whatsapp = '95698745' WHERE RA = '45';
+UPDATE aluno SET whatsapp = '98745623' WHERE RA = '46';
+UPDATE aluno SET whatsapp = '96985214' WHERE RA = '47';
+UPDATE aluno SET whatsapp = '93214589' WHERE RA = '49';
+UPDATE aluno SET whatsapp = '96982145' WHERE RA = '50';
+UPDATE aluno SET whatsapp = '36585253' WHERE RA = '52';
+UPDATE aluno SET whatsapp = '92653562' WHERE RA = '53';
+UPDATE aluno SET whatsapp = '96023245' WHERE RA = '54';
+UPDATE aluno SET whatsapp = '98745632' WHERE RA = '56';
+UPDATE aluno SET whatsapp = '91235468' WHERE RA = '57';
+UPDATE aluno SET whatsapp = '99553825' WHERE RA = '58';
+UPDATE aluno SET whatsapp = '98877542' WHERE RA = '59';
+UPDATE aluno SET whatsapp = '96655214' WHERE RA = '60';
+
+INSERT INTO Telefone_aluno
+	(fk_RA, fk_cod_telefone)
+VALUES
+	('41', '1'),
+    ('41', '15'),
+    ('41', '13'),
+    ('42', '2'),
+    ('44', '3'),
+    ('45', '4'),
+    ('45', '5'),
+    ('45', '6'),
+    ('46', '9'),
+    ('47', '8'),
+    ('49', '12'),
+    ('49', '11'),
+    ('49', '8'),
+    ('50', '7'),
+    ('51', '10'),
+    ('52', '12'),
+    ('53', '15'),
+    ('54', '7'),
+	('55', '13'),
+    ('56', '14'),
+    ('57', '16'),
+    ('59', '8'),
+    ('60', '3');
+    
+INSERT INTO Disciplina
+	(nome_disciplina, carga_horaria, descricao, num_alunos, fk_cod_departamento)
+VALUES
+	('Eletronica digital', '30', 'Eletronica digital', '30', '4'),
+    ('Pscicologia Social', '25', 'Pscicologia Social', '25', '1'),
+    ('Programação em C', '40', 'Programação em C', '30', '5'),
+    ('Raciocinio logico', '40', 'Raciocinio logico', '40', '5'),
+    ('Analise Requisitos', '25', 'Analise Requisitos', '30', '5'),
+    ('Engenharia Software', '30', 'Engenharia de Software', '30', '5'),
+    ('Banco de Dados', '45', 'Banco de Dados', '25', '5'),
+    ('Programação Python', '40', 'Programação Python', '30', '5'),
+    ('Comportamento', '20', 'Comportamento', '25', '1'),
+    ('Coaching', '40', 'Coaching', '30', '1'),
+    ('Eletrica X', '60', 'Eletrica x', '30', '4'),
+    ('Regressão Linear', '60', 'Regressão Linear', '30', '2'),
+    ('Regressão Logística', '60', 'Regressão Logística', '30', '4'),
+    ('Estatística', '60', 'Estatística', '30', '2'),
+    ('Estatística Exata', '50', 'Estatística Exata', '25', '4'),
+    ('Números Complexos', '40', 'Números Complexos', '30', '2'),
+    ('Cálculo de Derivadas', '40', 'Cálculo de Derivadas', '25', '4'),
+    ('Cálculo I', '40', 'Cálculo I', '30', '2'),
+    ('Cálculo Integral', '40', 'Cálculo Integral', '30', '4'),
+    ('Filosofia', '30', 'Filosofia','30', '3'),
+    ('Sociologia', '40', 'Sociologia','25', '3'),
+    ('Teoria do Marlon', '40', 'Teoria do Marlon','30', '1'),
+    ('Ética', '30', 'Ética','30', '5'),
+    ('DISC', '40', 'Política ','25', '1'),
+    ('Estudo de caso', '30', 'Cidadania','50', '1'),
+    ('People Analytics', '40', 'People Analytics','50', '1'),
+    ('Ecologia', '40', 'Ecologia','30', '3'),
+    ('Invertebrados', '50', 'Invertebrados','25', '3'),
+    ('Vertebrados', '45', 'Vertebrados.','45', '3'),
+	('Estágio I', '200', 'Estágio I','80', '4');
+    
+INSERT INTO Curso_disciplina
+	(fk_cod_curso, fk_cod_disciplina)
+VALUES
+	('6',	'301'),
+	('7',	'302'),
+	('2',	'303'),
+	('5',	'304'),
+	('2',	'305'),
+	('1',	'306'),
+	('8',	'307'),
+	('2',	'308'),
+	('10',	'309'),
+	('10',	'310'),
+	('6',	'311'),
+	('6',	'312'),
+	('5',	'313'),
+	('5',	'314'),
+	('5',	'315'),
+	('1',	'316'),
+	('8',	'317'),
+	('1',	'318'),
+	('1',	'319'),
+	('4',	'320'),
+	('4',	'321'),
+	('4',	'322'),
+	('9',	'323'),
+	('7',	'324'),
+	('3',	'325'),
+	('9',	'326'),
+	('3',	'327'),
+	('3',	'328'),
+	('3',	'329'),
+	('6',	'330');
+    
+INSERT INTO Professor
+	(nome_professor, sobrenome_professor, `status`, fk_cod_departamento)
+VALUES
+	('Maria', 'Vilani', '1', '1'),
+    ('João', 'Maia', '1', '2'),
+    ('Regina', 'Albuquerque', '1', '3'),
+    ('Paloma', 'Morais', '1', '4'),
+    ('Gabriela', 'Couto', '1', '5'),
+    ('Luiz', 'Gonzaga', '1', '1'),
+    ('Gustavo', 'Moura', '1', '2'),
+    ('Barbara', 'Maria', '2', '3'),
+    ('Karla', 'Bruno', '2', '4'),
+    ('Thiago', 'Grande', '2', '5');
+    
+INSERT INTO Professor_disciplina
+	(fk_cod_professor, fk_cod_disciplina)
+VALUES
+	('1','301'),
+	('2','302'),
+	('3','303'),
+	('4','304'),
+	('5','305'),
+	('6','306'),
+	('7','307'),
+	('8','308'),
+	('9','309'),
+	('10','310'),
+	('1','311'),
+	('2','312'),
+	('3','313'),
+	('4','314'),
+	('5','315'),
+	('6','316'),
+	('7','317'),
+	('8','318'),
+	('9','319'),
+	('10','320'),
+	('1','321'),
+	('2','322'),
+	('3','323'),
+	('4','324'),
+	('5','325'),
+	('6','326'),
+	('7','327'),
+	('8','328'),
+	('9','329'),
+	('10','330');
+    
+INSERT INTO Aluno_Disciplina
+	(fk_ra, fk_cod_disciplina)
+VALUES
+	('41','301'),
+	('43','302'),
+	('44','303'),
+	('46','304'),
+	('47','305'),
+	('48','306'),
+	('49','307'),
+	('50','308'),
+	('51','309'),
+	('52','310'),
+	('53','311'),
+	('54','312'),
+	('55','313'),
+	('56','314'),
+	('57','315'),
+	('59','316'),
+	('60','317'),
+	('41','318'),
+	('43','319'),
+	('44','320'),
+	('46','321'),
+	('47','322'),
+	('48','323'),
+	('49','324'),
+	('50','325'),
+	('51','326'),
+	('52','327'),
+	('53','328'),
+	('54','329'),
+	('55','330');
+
+INSERT INTO Historico
+	(dt_inicio, dt_fim, fk_ra)
+VALUES
+	('2022-01-03','2022-06-30','41'),
+	('2022-01-03','2022-06-30','43'),
+	('2022-01-03','2022-06-30','44'),
+	('2022-01-03','2022-06-30','46'),
+	('2022-01-03','2022-06-30','47'),
+	('2022-01-03','2022-06-30','48'),
+	('2022-01-03','2022-06-30','49'),
+	('2022-01-03','2022-06-30','50'),
+	('2022-01-03','2022-06-30','51'),
+	('2022-01-03','2022-06-30','52'),
+	('2022-01-03','2022-06-30','53'),
+	('2022-01-03','2022-06-30','54'),
+	('2022-01-03','2022-06-30','55'),
+	('2022-01-03','2022-06-30','56'),
+	('2022-01-03','2022-06-30','57'),
+	('2022-01-03','2022-06-30','59'),
+	('2022-01-03','2022-06-30','60');
+
+INSERT INTO Disciplina_historico
+	(nota, frequencia, fk_cod_historico, fk_cod_disciplina)
+VALUES
+	('6.5','75','1','301'),
+	('6.0','80','2','302'),
+	('7.5','85','3','303'),
+	('9.0','95','4','304'),
+	('8.5','100','5','305'),
+	('8.5','92','6','306'),
+	('7.0','86','7','307'),
+	('5.5','54','8','308'),
+	('9.0','100','9','309'),
+	('6.5','89','10','310'),
+	('6.0','78','1','311'),
+	('7.5','81','2','312'),
+	('9.0','98','3','313'),
+	('8.5','88','4','314'),
+	('8.5','96','5','315'),
+	('7.0','87','6','316'),
+	('5.5','62','7','317'),
+	('9.0','99','8','318'),
+	('6.5','55','9','319'),
+	('6.0','88','10','320'),
+	('7.5','79','11','321'),
+	('9.0','100','12','322'),
+	('8.5','96','13','323'),
+	('8.5','99','14','324'),
+	('7.0','79','15','325'),
+	('5.5','66','16','326'),
+	('9.0','100','17','327'),
+	('5.5','87','8','328'),
+	('9.0','98','9','329'),
+	('6.5','77','1','330');
